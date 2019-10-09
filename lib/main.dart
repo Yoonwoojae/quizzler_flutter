@@ -37,7 +37,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                'This is where the question text will go.',
+                '나는 잘생겼나요?',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -54,7 +54,7 @@ class _QuizPageState extends State<QuizPage> {
               textColor: Colors.white,
               color: Colors.green,
               child: Text(
-                'True',
+                '맞음',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 20.0,
@@ -72,7 +72,7 @@ class _QuizPageState extends State<QuizPage> {
             child: FlatButton(
               color: Colors.red,
               child: Text(
-                'False',
+                '틀림',
                 style: TextStyle(
                   fontSize: 20.0,
                   color: Colors.white,
