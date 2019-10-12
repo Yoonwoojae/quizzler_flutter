@@ -27,6 +27,16 @@ class QuizPage extends StatefulWidget {
 class _QuizPageState extends State<QuizPage> {
   List<Widget> scoreKeeper = [];
 
+  List<String> questions = [
+    '사과는 빨간색 입니까?',
+    '나는 \'잘\' 생겼나요?',
+    'Flutter 를 좋아 합니까?'
+  ];
+
+  List<bool> answers = [true, false, true];
+
+  int questionNumber = 0;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -39,7 +49,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                '나는 잘생겼나요?',
+                questions[questionNumber],
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -63,6 +73,14 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
+                bool correctAnswer = answers[questionNumber];
+
+                if (correctAnswer == true) {
+                  print('정답!');
+                } else {
+                  print('오답!');
+                }
+
                 setState(() {
                   scoreKeeper.add(
                     Icon(
@@ -70,6 +88,7 @@ class _QuizPageState extends State<QuizPage> {
                       color: Colors.green,
                     ),
                   );
+                  questionNumber++;
                 });
               },
             ),
@@ -88,6 +107,14 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
+                bool correctAnswer = answers[questionNumber];
+
+                if (correctAnswer == false) {
+                  print('정답!');
+                } else {
+                  print('오답!');
+                }
+
                 setState(() {
                   scoreKeeper.add(
                     Icon(
@@ -95,6 +122,7 @@ class _QuizPageState extends State<QuizPage> {
                       color: Colors.red,
                     ),
                   );
+                  questionNumber++;
                 });
               },
             ),
