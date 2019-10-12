@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'quiz_brain.dart';
+
+QuizBrain quizBrain = QuizBrain();
 
 void main() => runApp(Quizzler());
 
@@ -26,15 +29,6 @@ class QuizPage extends StatefulWidget {
 
 class _QuizPageState extends State<QuizPage> {
   List<Widget> scoreKeeper = [];
-
-  List<String> questions = [
-    '사과는 빨간색 입니까?',
-    '나는 \'잘\' 생겼나요?',
-    'Flutter 를 좋아 합니까?'
-  ];
-
-  List<bool> answers = [true, false, true];
-
   int questionNumber = 0;
 
   @override
@@ -49,7 +43,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                questions[questionNumber],
+                quizBrain.getQuestionText(questionNumber),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -73,7 +67,8 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                bool correctAnswer = answers[questionNumber];
+                bool correctAnswer =
+                    quizBrain.getQuestionAnswer(questionNumber);
 
                 if (correctAnswer == true) {
                   print('정답!');
@@ -107,7 +102,8 @@ class _QuizPageState extends State<QuizPage> {
                 ),
               ),
               onPressed: () {
-                bool correctAnswer = answers[questionNumber];
+                bool correctAnswer =
+                    quizBrain.getQuestionAnswer(questionNumber);
 
                 if (correctAnswer == false) {
                   print('정답!');
